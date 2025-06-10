@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Preparación Oposiciones C26 - CJO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-line::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            bottom: -2rem;
+            width: 2px;
+            background-color: #7FDBFF; 
+            transform: translateX(-50%);
+        }
+        .flow-item {
+            border: 2px solid #0074D9;
+        }
+    </style>
+</head>
+<body class="bg-[#F0F8FF]">
+
+    <!-- Chosen Palette: Brilliant Blues -->
+    <!-- Application Structure Plan: La infografía presenta una narrativa secuencial para el opositor. Comienza con una introducción a la oportunidad de la Convocatoria 2026, seguida por la segmentación de los niveles de preparación, la explicación de la metodología híbrida, y finalmente, la sección de tarifas detallada con visualizaciones de descuentos. Concluye con el proceso de reserva. Esta estructura, basada en secciones con scroll, facilita la digestión de información compleja y cuenta una historia clara sobre la preparación de oposiciones. -->
+    <!-- Visualization & Content Choices: Dato: Anuncio Convocatoria 2026. Meta: Informar. Visualización: "Single Big Number" (HTML/CSS). Dato: Comparativa de Grupos. Meta: Comparar. Visualización: Tarjetas informativas (HTML/CSS con Tailwind). Dato: Flujo de preparación. Meta: Organizar. Visualización: Diagrama de flujo (HTML/CSS con Tailwind, usando bordes y pseudo-elementos). Dato: Comparativa de costes totales con descuentos por modalidad y precio mensual promedio, incluyendo el precio promedio mensual en efectivo en el tooltip. Meta: Comparar. Visualización: Gráfico de Barras (Chart.js/Canvas), ajustado para mostrar costes antes de descuento por efectivo y el promedio mensual en las etiquetas. Dato: Composición del pago a plazos. Meta: Informar. Visualización: Gráfico de Anillo (Donut Chart, Chart.js/Canvas). Dato: Pasos para la reserva. Meta: Organizar. Visualización: Lista ordenada (HTML/CSS). Confirmando NO SVG ni Mermaid JS en todas las implementaciones. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <!-- Referencia al logo utilizando la URL directa de Imgur. Se ajusta el tamaño para que sea tan grande como el título. -->
+            <img src="https://i.imgur.com/9jntOdc.png" alt="CJO Logo" class="mx-auto mb-4 w-64 md:w-80 lg:w-96 h-auto">
+            <h1 class="text-4xl md:text-6xl font-black text-[#004E89] mb-2">Convocatoria 2026</h1>
+            <p class="text-xl md:text-2xl text-[#0074D9]">Tu Futuro como Maestro Comienza Aquí</p>
+        </header>
+
+        <main>
+            <!-- Sección 1: La Oportunidad -->
+            <section class="mb-16">
+                <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 text-center">
+                    <h2 class="text-3xl font-bold text-[#004E89] mb-4">El Escenario: Prepárate para el Modelo de Reposición</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        La Consejería de Educación ha confirmado el calendario para los próximos años. La convocatoria de 2026 seguirá el sistema tradicional de reposición, que incluye Temario, Casos Prácticos, Plan de Apoyo y Unidad Didáctica con Defensa. Es una oportunidad clave para asegurar tu plaza. Nuestra preparación está 100% enfocada en este modelo.
+                    </p>
+                    <div class="mt-8 flex justify-center items-center space-x-8">
+                        <div class="text-center">
+                            <p class="text-5xl font-extrabold text-[#0074D9]">2026</p>
+                            <p class="text-gray-600">Modelo Reposición</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2: Elige Tu Nivel -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-[#004E89] text-center mb-8">Encuentra tu Grupo de Preparación Ideal</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                        <p class="text-4xl mb-4">🚀</p>
+                        <h3 class="text-2xl font-bold text-[#004E89] mb-3">Nivel Básico (C26)</h3>
+                        <p class="text-gray-700">Perfecto si te enfrentas por primera vez al sistema de reposición o necesitas construir una base sólida en todas las partes de la oposición.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 border-4 border-[#0074D9]">
+                         <p class="text-4xl mb-4">🎯</p>
+                        <h3 class="text-2xl font-bold text-[#004E89] mb-3">Nivel Intermedio (C26i)</h3>
+                        <p class="text-gray-700">Diseñado para opositores que ya se han presentado, dominan el temario y la UD, y buscan perfeccionar su técnica en los casos prácticos.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                         <p class="text-4xl mb-4">🏆</p>
+                        <h3 class="text-2xl font-bold text-[#004E89] mb-3">Nivel Avanzado (C26A)</h3>
+                        <p class="text-gray-700">Para interinos con años de preparación con Carlos y amplia competencia en el sistema de reposición: Tema+Caso y PA+UD.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección 3: Metodología -->
+            <section class="mb-16">
+                 <h2 class="text-3xl font-bold text-[#004E89] text-center mb-8">Una Metodología Híbrida y Modular</h2>
+                 <div class="bg-white rounded-lg shadow-xl p-8">
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center mb-10">
+                        Nuestro sistema te da total flexibilidad. Sigue las clases en directo o accede a las grabaciones cuando quieras. Contarás con cuatro aulas virtuales especializadas para optimizar tu tiempo y centrarte en lo que más necesitas.
+                    </p>
+                    <div class="relative flex flex-col items-center space-y-8">
+                        <div class="flow-item relative w-full md:w-1/2 bg-blue-100 text-[#004E89] rounded-lg p-4 text-center font-bold z-10 flow-line">PREPARACIÓN HÍBRIDA (10+1 Meses)</div>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+                            <div class="flow-item bg-white rounded-lg p-3 text-center">Aula de Clases (Retransmisión y Grabaciones) y Novedades</div>
+                            <div class="flow-item bg-white rounded-lg p-3 text-center">Aula de Temario</div>
+                            <div class="flow-item bg-white rounded-lg p-3 text-center">Aula de Casos Prácticos</div>
+                            <div class="flow-item bg-white rounded-lg p-3 text-center">Aula de PA y UD</div>
+                        </div>
+                         <div class="flow-item w-full md:w-1/2 bg-blue-100 text-[#004E89] rounded-lg p-4 text-center font-bold mt-4">DEFENSA Y SIMULACROS</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 4: Tarifas -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-[#004E89] text-center mb-8">Inversión en tu Futuro Profesional (Antiguos Alumnos)</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <div class="bg-white rounded-lg shadow-xl p-6 lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-[#004E89] mb-4 text-center">Planes de Pago</h3>
+                        <div class="flex flex-col md:flex-row justify-center gap-6">
+                            <div class="flex-1 border-2 border-dashed border-[#7FDBFF] rounded-lg p-4 text-center">
+                                 <h4 class="font-bold text-xl text-[#0074D9] mb-2">Antiguos Alumnos</h4>
+                                 <p class="text-center text-4xl font-extrabold text-[#004E89] mb-2">5 Plazos de $360</p>
+                                 <p class="text-center text-lg text-gray-600">(<span class="font-bold">340€/plazo</span> si es en efectivo)</p>
+                                 <p class="text-center text-xl text-[#004E89] mt-4">o 200 euros/mes (si es por domiciliación bancaria)</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-green-100 text-green-800 p-4 rounded-lg text-center">
+                            <p><span class="font-bold">¡Descuento adicional!</span> Los pagos a plazos en efectivo se benefician de 20€ menos por plazo.</p>
+                            <p class="text-sm">Si se realiza por link (pasarela de pago), no habrá recargo sobre el precio base del plazo.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-xl p-6 lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-[#004E89] mb-4 text-center">Visualiza tu Ahorro (Pago a Plazos)</h3>
+                        <p class="text-center text-gray-700 mb-4">Elige una preparación a tu medida y paga solo por lo que necesitas. Estos descuentos se aplican al plan de pago a plazos para Antiguos Alumnos, calculados sobre la tarifa base de 360€/plazo (antes de cualquier descuento adicional por pago en efectivo).</p>
+                        <div class="chart-container">
+                            <canvas id="discountChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow-xl p-6 flex flex-col md:flex-row items-center gap-8">
+                        <div class="w-full md:w-1/2">
+                           <h3 class="text-2xl font-bold text-[#004E89] mb-4 text-center">Composición del Pago a Plazos</h3>
+                           <p class="text-center text-gray-700 mb-4">El coste total de la preparación a plazos se divide inicialmente en 5 plazos iguales. Los descuentos por modalidad de corrección se traducen en la eliminación de uno o dos de estos plazos.</p>
+                           <div class="chart-container h-64 md:h-80">
+                               <canvas id="compositionChart"></canvas>
+                           </div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                           <h3 class="text-2xl font-bold text-[#004E89] mb-4">Descuentos por Flexibilidad en Correcciones</h3>
+                           <ul class="space-y-4">
+                               <li class="p-4 bg-blue-50 rounded-lg">
+                                   <p class="font-bold text-[#0074D9]">20% DTO. (1 Plazo Menos)</p>
+                                   <p class="text-gray-700">Si eliges la preparación sin corrección de temario.</p>
+                               </li>
+                               <li class="p-4 bg-blue-50 rounded-lg">
+                                   <p class="font-bold text-[#0074D9]">20% DTO. (1 Plazo Menos)</p>
+                                   <p class="text-gray-700">Si la prefieres sin corrección de casos prácticos.</p>
+                               </li>
+                               <li class="p-4 bg-blue-50 rounded-lg">
+                                   <p class="font-bold text-[#004E89]">40% DTO. (2 Plazos Menos)</p>
+                                   <p class="text-gray-700">Si optas por no corregir ni temas ni casos.</p>
+                               </li>
+                           </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- Sección 5: Reserva -->
+            <section>
+                 <h2 class="text-3xl font-bold text-[#004E89] text-center mb-8">Reserva tu Plaza</h2>
+                <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
+                     <p class="text-lg text-center text-gray-700 mb-6">Asegura tu sitio en la preparación abonando el primer plazo. Este pago funciona como reserva y cubre los meses de septiembre y octubre. ¡No te quedes fuera!</p>
+                     <div class="text-center bg-yellow-100 text-yellow-800 p-4 rounded-lg">
+                         <p><span class="font-bold">Nota importante:</span> En caso de renuncia a la plaza, se devolverá el 50% del primer plazo abonado.</p>
+                     </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 py-6 border-t border-[#7FDBFF]">
+            <p class="text-gray-600">CJO Oposiciones &copy; 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            dark: '#004E89',
+            bright: '#0074D9',
+            light: '#7FDBFF',
+            background: '#F0F8FF',
+            text: '#111111'
+        };
+
+        function wrapLabels(label, maxLength) {
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const chartOptionsBase = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: brilliantBlues.text,
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback,
+                        label: function(context) {
+                            const dataIndex = context.dataIndex;
+                            const total = labelsAndPrices[dataIndex].total;
+                            const monthly = labelsAndPrices[dataIndex].monthly;
+                            const monthlyCash = labelsAndPrices[dataIndex].monthlyCash;
+                            return [
+                                `Total: ${total}€`,
+                                `Promedio Mensual: ${monthly}€`,
+                                `Promedio Mensual (en efectivo): ${monthlyCash}€`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: brilliantBlues.text },
+                    grid: { color: '#e0e0e0' }
+                },
+                x: {
+                    ticks: { color: brilliantBlues.text },
+                    grid: { display: false }
+                }
+            }
+        };
+        
+        // Discount Chart (Bar Chart) - Updated for Antiguos Alumnos with monthly average
+        const discountCtx = document.getElementById('discountChart').getContext('2d');
+        const labelsAndPrices = [
+            { label: 'Preparación Completa', total: 1800, monthly: 180, monthlyCash: 170 }, 
+            { label: 'Sin Corrección de Temario', total: 1440, monthly: 144, monthlyCash: 134 }, 
+            { label: 'Sin Corrección de Casos', total: 1440, monthly: 144, monthlyCash: 134 }, 
+            { label: 'Sin Corrección de Temas ni Casos', total: 1080, monthly: 108, monthlyCash: 98 }
+        ];
+
+        const discountLabels = labelsAndPrices.map(item => 
+            wrapLabels(`${item.label}\n(${item.monthly}€/mes)`, 16)
+        );
+        const discountData = labelsAndPrices.map(item => item.total);
+
+        new Chart(discountCtx, {
+            type: 'bar',
+            data: {
+                labels: discountLabels,
+                datasets: [{
+                    label: 'Coste Total (€)',
+                    data: discountData, 
+                    backgroundColor: [brilliantBlues.dark, brilliantBlues.bright, brilliantBlues.bright, brilliantBlues.light],
+                    borderColor: brilliantBlues.dark,
+                    borderWidth: 1
+                }]
+            },
+            options: chartOptionsBase
+        });
+
+        // Composition Chart (Donut)
+        const compositionCtx = document.getElementById('compositionChart').getContext('2d');
+        new Chart(compositionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Plazo 1 (Reserva)', 'Plazo 2', 'Plazo 3', 'Plazo 4', 'Plazo 5'],
+                datasets: [{
+                    label: 'Composición de Plazos',
+                    data: [20, 20, 20, 20, 20],
+                    backgroundColor: [
+                        brilliantBlues.dark,
+                        '#296ba9',
+                        brilliantBlues.bright,
+                        '#539ee3',
+                        brilliantBlues.light
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                 responsive: true,
+                 maintainAspectRatio: false,
+                 plugins: {
+                     legend: {
+                         position: 'bottom',
+                         labels: {
+                             color: brilliantBlues.text,
+                             font: {
+                                 size: 12
+                             }
+                         }
+                     },
+                     tooltip: {
+                         callbacks: {
+                             title: tooltipTitleCallback
+                         }
+                     }
+                 }
+            }
+        });
+    </script>
+</body>
+</html>
